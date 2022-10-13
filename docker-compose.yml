@@ -2,9 +2,11 @@ version: "3"
 
 services:
   jupyter:
-    image: jupyter/minimal-notebook
+    image: jupyter/datascience-notebook
     volumes:
       - .:/home/jovyan/work
       - ./configure_environment.sh:/usr/local/bin/before-notebook.d/configure_environment.sh
+    environment:
+      - GRANT_SUDO=yes
     ports:
       - 8888:8888
